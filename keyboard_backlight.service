@@ -1,0 +1,15 @@
+[Unit]
+Description=Controls the backlight of the keyboard
+After=graphical.target
+
+[Service]
+Type=forking
+# Options can be passed via command line
+ExecStart=/usr/bin/keyboard_backlight 15
+KillMode=process
+KillSignal=SIGTERM
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
